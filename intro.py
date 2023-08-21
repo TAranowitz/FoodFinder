@@ -17,9 +17,23 @@ def DataCollection():
     
     return cuisine_index
 
+def save_cuisine_index(index_list:list) -> None:
+    with open("saved_data.txt", "w") as file:
+        for index in index_list:
+            file.write(f"{str(index)}\n")
+
+def load_cuisine_index()-> list:
+    return_list = []
+    with open("saved_data.txt", "r") as file:
+        for line in file:
+            return_list.append(int(line))
+    return return_list
 
 def main():
-    DataCollection()
+    #index_list = DataCollection()
+    #save_cuisine_index(index_list)
+    my_list = load_cuisine_index()
+    print(my_list)
 
 
 if __name__ == "__main__":
