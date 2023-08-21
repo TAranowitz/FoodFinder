@@ -29,11 +29,21 @@ def load_cuisine_index()-> list:
             return_list.append(int(line))
     return return_list
 
+def give_non_visited(index_list:list)->set:
+    cuisine_types = ["Japanese","Chinese","Italian","Indian","Mexican","French","Thai","Spanish","Greek","Korean","Vietnamese","Polish","Filipino"]
+    index_set = set(index_list)
+    non_visited = set()
+    for i in range(len(cuisine_types)):
+        if i not in index_set:
+            non_visited.add(i)
+    return non_visited
+
+
 def main():
     #index_list = DataCollection()
     #save_cuisine_index(index_list)
     my_list = load_cuisine_index()
-    print(my_list)
+    print(give_non_visited(my_list))
 
 
 if __name__ == "__main__":
